@@ -1,0 +1,16 @@
+site_name: Portfolio Data Analyst – Yves Landry KAZONI
+site_url: https://landryyves0-bit.github.io/portfolio-data-analyst-yves
+theme:
+  name: material
+  language: fr
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - content.code.copy
+    - content.tabs.link
+nav:
+  - Accueil: index.md
+  - Projets: projets.md
+  - Dashboards: dashboards.md
+  - Scripts & Outils: scripts.md
+  - Publications: publications.md
