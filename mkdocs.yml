@@ -14,3 +14,10 @@ nav:
   - Dashboards: dashboards.md
   - Scripts & Outils: scripts.md
   - Publications: publications.md
+palette:
+    - scheme: default
+      primary: indigo
+      accent: deep orange
+    - scheme: slate
+      primary: teal
+      accent: lime
