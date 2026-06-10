@@ -1,0 +1,35 @@
+name: Deploy Portfolio to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main   # Déclenche le workflow à chaque push sur la branche main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Récupérer ton dépôt
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. Installer Node.js (utile si tu utilises Jekyll, MkDocs ou un générateur statique)
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      # 3. Construire ton site (si tu utilises un générateur comme MkDocs ou Jekyll)
+      # Ici, on suppose que tu utilises MkDocs. Si tu n’utilises rien, tu peux sauter cette étape.
+      - name: Build site with MkDocs
+        run: |
+          pip install mkdocs-material
+          mkdocs build
+
+      # 4. Déployer sur GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site   # Dossier généré par MkDocs (ou ./docs si tu utilises Jekyll)
